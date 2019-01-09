@@ -137,7 +137,6 @@ namespace DN_Lab02_UnitTesting
         public static decimal Deposit(decimal value)
         {
             decimal deposit = value;
-            Console.WriteLine("Please enter how much you would like to deposit.");
 
             try
             {
