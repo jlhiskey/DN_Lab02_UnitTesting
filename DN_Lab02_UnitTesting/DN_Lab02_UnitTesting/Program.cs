@@ -29,10 +29,11 @@ namespace DN_Lab02_UnitTesting
                     Environment.Exit(1);
                     break;
                 case 1:
+                    Console.WriteLine();
                     Balance(0);
                     break;
                 case 2:
-                    //Withdrawal();
+                    Withdrawal();
                     break;
                 case 3:
                     //Deposit();
@@ -45,12 +46,10 @@ namespace DN_Lab02_UnitTesting
                     break;
             }
         }
-        //TODO: Check Balance
-        static int Balance(decimal transaction)
+        //Check Balance
+        static decimal Balance(decimal transaction)
         {
-            decimal balance = 0m;
-                try
-                {
+            decimal balance = 0;
                     if (balance + transaction >= 0)
                     {
                         balance = balance + transaction;
@@ -58,16 +57,33 @@ namespace DN_Lab02_UnitTesting
                         Console.WriteLine();
                         UserInterface();
                     }
-                }
-                catch (Exception)
-                {
+                else {
                     Console.WriteLine("Insufficient Funds for Transaction");
                     UserInterface();
                 }
             
-            return Convert.ToInt32(balance);
+            return balance;
         }
-        //TODO: Withdraw 
+        //TODO: Withdraw
+        static decimal Withdrawal()
+        {
+            decimal withdrawal = 0;
+            Console.WriteLine("Please enter how much you would like to withdraw.");
+            
+            try
+            {
+                withdrawal = decimal.Parse(Console.ReadLine());
+                Console.WriteLine();
+                Balance(-withdrawal);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Please use numerical values. Ex 10.00");
+                Withdrawal();
+            }
+
+            return -withdrawal;
+        }
         //TODO: Deposit
         //TODO: Transaction History --Stretch
     }
