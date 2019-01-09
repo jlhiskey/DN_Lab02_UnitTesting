@@ -4,7 +4,7 @@ namespace DN_Lab02_UnitTesting
 {
     public class Program
     {
-        public static decimal balance = 0;
+        public static decimal balance = 0.00M;
 
         static void Main(string[] args)
         {
@@ -49,12 +49,12 @@ namespace DN_Lab02_UnitTesting
             }
         }
         //Check Balance
-        static decimal Balance(decimal transaction)
+        public static decimal Balance(decimal transaction)
         {
                     if (balance + transaction >= 0)
                     {
                         balance = balance + transaction;
-                        Console.WriteLine($"Your balance is {balance}");
+                        Console.WriteLine($"Your balance is ${balance}");
                         Console.WriteLine();
                         UserInterface();
                     }
@@ -66,7 +66,7 @@ namespace DN_Lab02_UnitTesting
             return balance;
         }
         //Withdrawal
-        static decimal Withdrawal()
+        public static decimal Withdrawal()
         {
             decimal withdrawal = 0;
             Console.WriteLine("Please enter how much you would like to withdraw.");
@@ -86,7 +86,7 @@ namespace DN_Lab02_UnitTesting
             return -withdrawal;
         }
         //Deposit
-        static decimal Deposit()
+        public static decimal Deposit()
         {
             decimal deposit = 0;
             Console.WriteLine("Please enter how much you would like to deposit.");

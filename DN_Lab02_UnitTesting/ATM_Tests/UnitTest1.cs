@@ -10,13 +10,13 @@ namespace ATM_Tests
         [Fact]
         public void TestingBalance()
         {
-
+            Assert.Equal(100, Program.Balance(100));
         }
         //Test Withdraw
         [Fact]
         public void TestingWithdraw()
         {
-
+            Assert.Equal(100, Program.Withdrawal(100.00));
         }
         //Test Deposit
         [Fact]
