@@ -9,7 +9,7 @@ namespace DN_Lab02_UnitTesting
             Console.WriteLine("Welcome to Jason's ATM");
             UserInterface();
         }
-        //TODO: User Interface
+        //User Interface
         static void UserInterface()
         {
             Console.WriteLine("Select 0 to Exit\nSelect 1 for Balance\nSelect 2 for Withdrawal\nSelect 3 for Deposit\nSelect 4 for Transaction History");
@@ -29,21 +29,44 @@ namespace DN_Lab02_UnitTesting
                     Environment.Exit(1);
                     break;
                 case 1:
-                    Balance();
+                    Balance(0);
                     break;
                 case 2:
-                    Withdrawal();
+                    //Withdrawal();
                     break;
                 case 3:
-                    Deposit();
+                    //Deposit();
                     break;
                 case 4:
-                    TransactionHistory();
+                    //TransactionHistory();
                     break;
                 default:
+                    UserInterface();
+                    break;
             }
         }
         //TODO: Check Balance
+        static int Balance(decimal transaction)
+        {
+            decimal balance = 0m;
+                try
+                {
+                    if (balance + transaction >= 0)
+                    {
+                        balance = balance + transaction;
+                        Console.WriteLine($"Your balance is {balance}");
+                        Console.WriteLine();
+                        UserInterface();
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Insufficient Funds for Transaction");
+                    UserInterface();
+                }
+            
+            return Convert.ToInt32(balance);
+        }
         //TODO: Withdraw 
         //TODO: Deposit
         //TODO: Transaction History --Stretch
