@@ -36,7 +36,7 @@ namespace DN_Lab02_UnitTesting
                     Withdrawal();
                     break;
                 case 3:
-                    //Deposit();
+                    Deposit();
                     break;
                 case 4:
                     //TransactionHistory();
@@ -64,7 +64,7 @@ namespace DN_Lab02_UnitTesting
             
             return balance;
         }
-        //TODO: Withdraw
+        //Withdrawal
         static decimal Withdrawal()
         {
             decimal withdrawal = 0;
@@ -84,7 +84,26 @@ namespace DN_Lab02_UnitTesting
 
             return -withdrawal;
         }
-        //TODO: Deposit
+        //Deposit
+        static decimal Deposit()
+        {
+            decimal deposit = 0;
+            Console.WriteLine("Please enter how much you would like to deposit.");
+
+            try
+            {
+                deposit = decimal.Parse(Console.ReadLine());
+                Console.WriteLine();
+                Balance(deposit);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Please use numerical values. Ex 10.00");
+                Deposit();
+            }
+
+            return deposit;
+        }
         //TODO: Transaction History --Stretch
     }
 }
