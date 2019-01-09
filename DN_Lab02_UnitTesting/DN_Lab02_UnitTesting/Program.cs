@@ -4,6 +4,8 @@ namespace DN_Lab02_UnitTesting
 {
     public class Program
     {
+        public static decimal balance = 0;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Jason's ATM");
@@ -49,7 +51,6 @@ namespace DN_Lab02_UnitTesting
         //Check Balance
         static decimal Balance(decimal transaction)
         {
-            decimal balance = 0;
                     if (balance + transaction >= 0)
                     {
                         balance = balance + transaction;
